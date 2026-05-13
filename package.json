@@ -4,9 +4,39 @@
   "description": "Electron client that opens http://localhost:4000/ with an X-style logo.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack:dir": "electron-builder --dir",
+    "pack": "electron-builder"
   },
   "devDependencies": {
-    "electron": "^31.0.0"
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.localhost4000.client",
+    "productName": "Localhost4000Client",
+    "files": [
+      "main.js",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
   }
 }
